@@ -1,6 +1,7 @@
 import { signIn, signOut, useSession } from "next-auth/react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Input } from "@/components/ui/input";
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -14,6 +15,9 @@ const Navbar = () => {
               <Link href="/">
                 <p className="font-semibold">memeboard</p>
               </Link>
+            </div>
+            <div className="flex items-center justify-center">
+              <Input placeholder="Search" className="w-96" />
             </div>
             <div className="flex justify-end">
               {session ? (
