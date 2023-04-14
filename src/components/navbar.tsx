@@ -1,7 +1,8 @@
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -19,9 +20,16 @@ const Navbar = () => {
             <div className="flex items-center justify-center">
               <Input placeholder="Search" className="w-96" />
             </div>
-            <div className="flex justify-end">
+            <div className="flex items-center justify-end">
               {session ? (
-                <Button onClick={() => void signOut()}>Sign Out</Button>
+                <Avatar>
+                  {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                  {/* @ts-ignore */}
+                  <AvatarImage src={session.user.image} />
+                  <AvatarFallback>
+                    {session.user.name?.charAt(0)}
+                  </AvatarFallback>
+                </Avatar>
               ) : (
                 <Button onClick={() => void signIn()}>Sign In</Button>
               )}
