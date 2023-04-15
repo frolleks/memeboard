@@ -7,6 +7,8 @@
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
+  // for Docker
+  output: "standalone",
 
   /**
    * If you have the "experimental: { appDir: true }" setting enabled, then you
