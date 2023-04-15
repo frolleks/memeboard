@@ -23,6 +23,9 @@ const server = z.object({
   GITHUB_CLIENT_SECRET: z.string().optional(),
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
+  MINIO_ENDPOINT: z.string(),
+  MINIO_ROOT_USERNAME: z.string(),
+  MINIO_ROOT_PASSWORD: z.string(),
 });
 
 /**
@@ -48,6 +51,9 @@ const processEnv = {
   GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
   DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
   DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
+  MINIO_ENDPOINT: process.env.MINIO_ENDPOINT,
+  MINIO_ROOT_USERNAME: process.env.MINIO_ROOT_USERNAME,
+  MINIO_ROOT_PASSWORD: process.env.MINIO_ROOT_PASSWORD,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
 
